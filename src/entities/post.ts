@@ -1,18 +1,22 @@
 import { TPost } from "../types/post";
 
 export class Post {
-  #id: number;
+  #id: number | null;
   #title: string;
   #body: string;
 
-  constructor({ id, title, body }: TPost) {
-    this.#id = id;
+  constructor({ title, body }: TPost) {
+    this.#id = null;
     this.#title = title;
     this.#body = body;
   }
 
   getId() {
     return this.#id;
+  }
+
+  setId(id: number) {
+    this.#id = id;
   }
 
   getTitle() {

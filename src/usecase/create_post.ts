@@ -2,7 +2,7 @@ import { TPost } from "../types/post";
 import { Post } from "../entities/post";
 import { AbstractPostRepository } from "./abstract_post_repository";
 
-export class CreateTask {
+export class CreatePost {
   #postRepository: AbstractPostRepository;
 
   constructor(postRepository: AbstractPostRepository) {

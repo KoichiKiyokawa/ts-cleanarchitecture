@@ -1,4 +1,4 @@
-import { TPost } from "../types/post";
+import { TPost } from "../types/post.ts";
 
 export class Post {
   #id: number | null;

@@ -1,6 +1,6 @@
-import { TPost } from "../types/post";
-import { Post } from "../entities/post";
-import { AbstractPostRepository } from "./abstract_post_repository";
+import { TPost } from "../types/post.ts";
+import { Post } from "../entities/post.ts";
+import { AbstractPostRepository } from "./abstract_post_repository.ts";
 
 export class CreatePost {
   #postRepository: AbstractPostRepository;

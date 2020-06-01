@@ -14,13 +14,11 @@ export class PostRepository extends AbstractPostRepository {
   async findAll() {
     const postRows: any = await this.#connection.execute(
       "SELECT * FROM posts",
-    )
+    );
 
-    return [...postRows].map((row) =>{
-      console.log({ row })
-      const [id, title, body] = row
-      console.log({ id, title, body })
-      return new Post({id,title,body})
+    return [...postRows].map((row) => {
+      const [id, title, body] = row;
+      return new Post({ id, title, body });
     });
   }
 

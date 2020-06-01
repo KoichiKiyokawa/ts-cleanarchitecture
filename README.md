@@ -21,3 +21,8 @@ deno run --allow-net --allow-read src/server.ts
 # 別のタブにて
 curl localhost:8080/<endpoint>
 ```
+
+### テスト方法
+```shell
+deno test
+```

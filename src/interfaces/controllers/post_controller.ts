@@ -3,6 +3,7 @@ import { AbstractDBConnection } from "../database/abstract_db_connection.ts";
 import { GetAllPosts } from "../../usecase/get_all_posts.ts";
 import { CreatePost } from "../../usecase/create_post.ts";
 import { TPost } from "../../types/post.ts";
+import { PostSerializer } from "../serializers/post_serializer.ts";
 
 export class PostController {
   #post_repository: PostRepository;
@@ -14,7 +15,9 @@ export class PostController {
   async getAllPosts() {
     console.log("controllers#getAllPosts");
     const usecase = new GetAllPosts(this.#post_repository);
-    return usecase.execute();
+    const postSerializer = new PostSerializer();
+    const posts = await usecase.execute()
+    return postSerializer.serialize(posts);
   }
 
   async createPost(req: { body: TPost }, res: any) {

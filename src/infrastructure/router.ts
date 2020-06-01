@@ -3,6 +3,8 @@ import { PostController } from "../interfaces/controllers/post_controller.ts";
 import { SqlConnection } from "./sql_connection.ts";
 
 const router = new express.App();
+router.use(express.simpleLog());
+router.use(express.bodyParser.json());
 const sqlConnection = new SqlConnection();
 const postController = new PostController(sqlConnection);
 

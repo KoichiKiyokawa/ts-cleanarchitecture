@@ -21,6 +21,7 @@ export class PostController {
   }
 
   async createPost(req: any) {
+    console.log({ req });
     const { title, body } = req.data;
     const usecase = new CreatePost(this.#postRepository);
     const createdPost = await usecase.execute({ title, body });

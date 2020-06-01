@@ -1,7 +1,6 @@
 import { AbstractPostRepository } from "../../usecase/abstract_post_repository.ts";
 import { AbstractDBConnection } from "./abstract_db_connection.ts";
 import { Post } from "../../entities/post.ts";
-import { TPost } from "../../types/post.ts";
 
 export class PostRepository extends AbstractPostRepository {
   #connection: AbstractDBConnection;

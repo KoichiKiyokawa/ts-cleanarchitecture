@@ -1,12 +1,14 @@
-import { open, save } from "https://deno.land/x/sqlite/mod.ts";
+import { DB } from "https://deno.land/x/sqlite/mod.ts";
 import { AbstractDBConnection } from "../interfaces/database/abstract_db_connection.ts";
 
-const db = await open("test.db");
+const db = new DB("test.db");
 
 // SQLとの接続部分
 export class SqlConnection extends AbstractDBConnection {
   // 与えられたSQLクエリを実行する
   async execute(query: string, args: any[]) {
-    return db.query(query, args);
+    const result = db.query(query, args);
+    // db.close();
+    return result;
   }
 }

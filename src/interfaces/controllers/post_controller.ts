@@ -16,7 +16,7 @@ export class PostController {
     console.log("controllers#getAllPosts");
     const usecase = new GetAllPosts(this.#post_repository);
     const postSerializer = new PostSerializer();
-    const posts = await usecase.execute()
+    const posts = await usecase.execute();
     return postSerializer.serialize(posts);
   }
 

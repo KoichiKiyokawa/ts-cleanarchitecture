@@ -6,23 +6,24 @@ import { TPost } from "../../types/post.ts";
 import { PostSerializer } from "../serializers/post_serializer.ts";
 
 export class PostController {
-  #post_repository: PostRepository;
+  #postRepository: PostRepository;
+  #postSerializer: PostSerializer;
 
   constructor(dbConnection: AbstractDBConnection) {
-    this.#post_repository = new PostRepository(dbConnection);
+    this.#postRepository = new PostRepository(dbConnection);
+    this.#postSerializer = new PostSerializer();
   }
 
   async getAllPosts() {
-    console.log("controllers#getAllPosts");
-    const usecase = new GetAllPosts(this.#post_repository);
-    const postSerializer = new PostSerializer();
+    const usecase = new GetAllPosts(this.#postRepository);
     const posts = await usecase.execute();
-    return postSerializer.serialize(posts);
+    return this.#postSerializer.serialize(posts);
   }
 
-  async createPost(req: { body: TPost }, res: any) {
-    const { title, body } = req.body;
-    const usecase = new CreatePost(this.#post_repository);
-    return usecase.execute({ title, body });
+  async createPost(req: any) {
+    const { title, body } = req.data;
+    const usecase = new CreatePost(this.#postRepository);
+    const createdPost = await usecase.execute({ title, body });
+    return this.#postSerializer.serialize(createdPost);
   }
 }

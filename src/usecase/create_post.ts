@@ -9,7 +9,7 @@ export class CreatePost {
     this.#postRepository = postRepository;
   }
 
-  execute(_post: TPost) {
+  execute(_post: TPost): Promise<Post> {
     const post = new Post(_post);
     return this.#postRepository.persist(post); // 永続化
   }

@@ -5,9 +5,10 @@
 タイトル(title)と本文(body)からなる投稿(post)モデルだけのシンプル構成です。
 
 ## API
-エンドポイント|METHOD|説明
---|--|--
-/posts|GET|投稿一覧を取得
+エンドポイント|METHOD|例|説明
+--|--|--|--
+/posts|GET|`curl localhost:3000/posts`|投稿一覧を取得
+/posts|POST|`curl localhost:3000/posts -X POST  -H "Content-Type: application/json" -d '{"title":"test2","body":"body"}'`|投稿一覧を追加
 
 ## 実行方法
 ### 依存関係
@@ -18,9 +19,9 @@
 ```shell
 git clone https://github.com/KoichiKiyokawa/ts-cleanarchitecture.git
 cd ts-cleanarchitecture
-deno run --allow-net --allow-read src/server.ts
+deno run --allow-net --allow-read --allow-write src/server.ts
 # 別のタブにて
-curl localhost:8080/<endpoint>
+curl localhost:3000/<endpoint>
 ```
 
 ### テスト方法

@@ -5,8 +5,8 @@ export class Post {
   #title: string;
   #body: string;
 
-  constructor({ title, body }: TPost) {
-    this.#id = null;
+  constructor({ id, title, body }: TPost) {
+    this.#id = id || null;
     this.#title = title;
     this.#body = body;
   }

@@ -1,4 +1,4 @@
-import { DB } from "https://deno.land/x/sqlite/mod.ts";
+import { DB } from "https://deno.land/x/sqlite@v2.1.0/mod.ts";
 import { IDbConnection } from "../interfaces/database/IDbConnection.ts";
 
 const db = new DB("test.db");

@@ -1,6 +1,6 @@
 import * as express from "https://raw.githubusercontent.com/NMathar/deno-express/master/mod.ts";
-import { PostController } from "../interfaces/controllers/post_controller.ts";
-import { SqlConnection } from "./sql_connection.ts";
+import { PostController } from "../interfaces/controllers/PostController.ts";
+import { SqlConnection } from "./SqlConnection.ts";
 
 const router = new express.App();
 router.use(express.simpleLog());

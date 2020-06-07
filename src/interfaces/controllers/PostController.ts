@@ -1,15 +1,16 @@
-import { PostRepository } from "../database/post_repository.ts";
-import { AbstractDBConnection } from "../database/abstract_db_connection.ts";
-import { GetAllPosts } from "../../usecase/get_all_posts.ts";
-import { CreatePost } from "../../usecase/create_post.ts";
+import { PostRepository } from "../database/postRepository.ts";
+import { GetAllPosts } from "../../usecase/GetAllPosts.ts";
+import { CreatePost } from "../../usecase/CreatePost.ts";
 import { TPost } from "../../types/post.ts";
-import { PostSerializer } from "../serializers/post_serializer.ts";
+import { PostSerializer } from "../serializers/PostSerializer.ts";
+import { IDbConnection } from "../database/IDbConnection.ts";
+import { IPostRepository } from "../../usecase/IPostRepository.ts";
 
 export class PostController {
-  #postRepository: PostRepository;
+  #postRepository: IPostRepository;
   #postSerializer: PostSerializer;
 
-  constructor(dbConnection: AbstractDBConnection) {
+  constructor(dbConnection: IDbConnection) {
     this.#postRepository = new PostRepository(dbConnection);
     this.#postSerializer = new PostSerializer();
   }
@@ -20,8 +21,7 @@ export class PostController {
     return this.#postSerializer.serialize(posts);
   }
 
-  async createPost(req: any) {
-    console.log({ req });
+  async createPost(req: { data: TPost }) {
     const { title, body } = req.data;
     const usecase = new CreatePost(this.#postRepository);
     const createdPost = await usecase.execute({ title, body });

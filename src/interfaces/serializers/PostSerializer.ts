@@ -1,4 +1,4 @@
-import { Post } from "../../entities/post.ts";
+import { Post } from "../../entities/Post.ts";
 
 export class PostSerializer {
   private serializeSingle(post: Post) {

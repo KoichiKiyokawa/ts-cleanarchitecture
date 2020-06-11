@@ -1,0 +1,5 @@
+hostname=localhost
+username=username
+db=dbname
+poolSize=3
+password=password

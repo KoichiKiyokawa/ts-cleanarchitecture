@@ -19,6 +19,7 @@
 ```shell
 git clone https://github.com/KoichiKiyokawa/ts-cleanarchitecture.git
 cd ts-cleanarchitecture
+sqlite3 test.db < db/migrate/20200618_create_posts.sql
 deno run --allow-net --allow-read --allow-write src/server.ts
 # 別のタブにて
 curl localhost:3000/<endpoint>

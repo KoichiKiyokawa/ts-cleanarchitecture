@@ -9,6 +9,8 @@
 --|--|--|--
 /posts|GET|`curl localhost:3000/posts`|投稿一覧を取得
 /posts|POST|`curl localhost:3000/posts -X POST  -H "Content-Type: application/json" -d '{"title":"test","body":"body"}'`|投稿を追加
+/post/:postId/comments|GET|`curl localhost:3000/posts/1/comments`|投稿1のコメント一覧を取得
+/post/:postId/comments|POST|`curl localhost:3000/posts/1/comments -X POST  -H "Content-Type: application/json" -d '{"text":"post1 is nice"}'`|投稿1にコメントを追加
 
 ## 実行方法
 ### 依存関係

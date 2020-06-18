@@ -2,8 +2,7 @@
 クリーンアーキテクチャの勉強がてら、Deno + TypeScriptで簡単なREST APIを作ってみました。
 
 ## モデル
-タイトル(title)と本文(body)からなる投稿(post)モデルだけのシンプル構成です。
-
+![image](https://user-images.githubusercontent.com/40315079/85039530-ce3b8380-b1c2-11ea-8ba6-9a24e112ccfa.png)
 ## API
 エンドポイント|METHOD|例|説明
 --|--|--|--

@@ -1,4 +1,4 @@
-import { PostRepository } from "../database/postRepository.ts";
+import { PostRepository } from "../database/PostRepository.ts";
 import { GetAllPosts } from "../../usecase/GetAllPosts.ts";
 import { CreatePost } from "../../usecase/CreatePost.ts";
 import { TPost } from "../../types/post.ts";

@@ -8,7 +8,7 @@
 エンドポイント|METHOD|例|説明
 --|--|--|--
 /posts|GET|`curl localhost:3000/posts`|投稿一覧を取得
-/posts|POST|`curl localhost:3000/posts -X POST  -H "Content-Type: application/json" -d '{"title":"test2","body":"body"}'`|投稿一覧を追加
+/posts|POST|`curl localhost:3000/posts -X POST  -H "Content-Type: application/json" -d '{"title":"test","body":"body"}'`|投稿を追加
 
 ## 実行方法
 ### 依存関係

@@ -1,1 +1,1 @@
-CREATE TABLE posts(id integer primary key, title text not null, body text);
+CREATE TABLE posts(id INTEGER PRIMARY KEY, title TEXT NOT NULL, body TEXT);

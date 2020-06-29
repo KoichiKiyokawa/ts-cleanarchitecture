@@ -1,4 +1,5 @@
 import { TPost } from "../types/post.ts";
+import { Comment } from "./Comment.ts";
 
 export class Post {
   #id: number | null;
@@ -25,5 +26,9 @@ export class Post {
 
   getBody() {
     return this.#body;
+  }
+
+  comment(text: string) {
+    return new Comment({ text, parentPost: this });
   }
 }

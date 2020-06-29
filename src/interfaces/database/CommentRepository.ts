@@ -1,7 +1,8 @@
-import { ICommentRepository } from "../../usecase/ICommentRepository.ts";
 import { IDbConnection } from "./IDbConnection.ts";
-import { Post } from "../../entities/Post.ts";
 import { Comment } from "../../entities/Comment.ts";
+import { PostFactory } from "../../entities/PostFactory.ts";
+import { PostRepository } from "./PostRepository.ts";
+import { ICommentRepository } from "../../entities/ICommentRepository.ts";
 
 export class CommentRepository implements ICommentRepository {
   constructor(private _connect: IDbConnection) {}
@@ -15,9 +16,11 @@ export class CommentRepository implements ICommentRepository {
       `,
       [postId],
     );
+    const postFacotry = new PostFactory(new PostRepository(this._connect));
+    const parentPost = await postFacotry.create(postId);
     return [...commentRows].map((row) => {
-      const [id, text] = row;
-      return new Comment({ id, text });
+      const [id, text] = row as [number,string];
+      return new Comment({ id, text, parentPost });
     });
   }
 

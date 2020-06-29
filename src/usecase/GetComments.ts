@@ -1,4 +1,4 @@
-import { ICommentRepository } from "./ICommentRepository.ts";
+import { ICommentRepository } from "../entities/ICommentRepository.ts";
 
 export class GetComments {
   constructor(private _commentRepository: ICommentRepository) {}

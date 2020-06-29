@@ -1,12 +1,17 @@
-import { ICommentRepository } from "./ICommentRepository.ts";
-import { Post } from "../entities/Post.ts";
+import { ICommentRepository } from "../entities/ICommentRepository.ts";
 import { Comment } from "../entities/Comment.ts";
-import { TComment } from "../types/comment.ts";
+import { PostFactory } from "../entities/PostFactory.ts";
+import { IPostRepository } from "../entities/IPostRepository.ts";
 
 export class CreateComment {
-  constructor(private _commentRepository: ICommentRepository) {}
-  execute(_comment: TComment, parentPostId: number): Promise<Comment> {
-    const comment = new Comment(_comment);
+  constructor(
+    private _postRepository: IPostRepository,
+    private _commentRepository: ICommentRepository,
+  ) {}
+  async execute(text: string, parentPostId: number): Promise<Comment> {
+    const postFactory = new PostFactory(this._postRepository);
+    const post = await postFactory.create(parentPostId);
+    const comment = post.comment(text);
     return this._commentRepository.persist(comment, parentPostId);
   }
 }

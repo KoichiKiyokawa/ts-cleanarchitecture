@@ -4,7 +4,7 @@ import { CreatePost } from "../../usecase/CreatePost.ts";
 import { TPost } from "../../types/post.ts";
 import { PostSerializer } from "../serializers/PostSerializer.ts";
 import { IDbConnection } from "../database/IDbConnection.ts";
-import { IPostRepository } from "../../usecase/IPostRepository.ts";
+import { IPostRepository } from "../../entities/IPostRepository.ts";
 
 export class PostController {
   #postRepository: IPostRepository;

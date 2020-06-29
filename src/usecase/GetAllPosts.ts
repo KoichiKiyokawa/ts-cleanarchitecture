@@ -1,4 +1,4 @@
-import { IPostRepository } from "./IPostRepository.ts";
+import { IPostRepository } from "../entities/IPostRepository.ts";
 
 export class GetAllPosts {
   constructor(private _postRepository: IPostRepository) {}
